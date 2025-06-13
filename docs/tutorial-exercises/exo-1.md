@@ -1,0 +1,84 @@
+---
+sidebar_position: 1
+---
+
+# Hello World
+Voici un **exercice Arduino complet** pour des lycéens, utilisant une **carte Arduino UNO** et un **afficheur LCD 1602 avec interface I2C**. L’objectif est d’afficher le message **"Hello World"** dès que la carte est alimentée.
+
+---
+
+## 🧪 **Exercice : Afficher "Hello World" sur un écran LCD 1602 I2C**
+
+### 🎯 Objectif pédagogique
+- Comprendre le fonctionnement d’un afficheur LCD avec interface I2C.
+- Apprendre à utiliser une bibliothèque Arduino.
+- Réaliser un montage simple et écrire un programme de base.
+
+---
+
+## 🧰 Matériel nécessaire
+| Composant | Quantité |
+|----------|----------|
+| Carte Arduino UNO | 1 |
+| Écran LCD 1602 I2C | 1 |
+| Câbles Dupont | 4 |
+| Câble USB | 1 |
+
+---
+
+## 🔌 Schéma de câblage
+
+L’écran LCD I2C possède généralement **4 broches** :  
+- **GND** → GND (Arduino)  
+- **VCC** → 5V (Arduino)  
+- **SDA** → A4 (Arduino UNO)  
+- **SCL** → A5 (Arduino UNO)
+
+---
+
+## 💻 Code Arduino
+
+Avant de commencer, il faut installer la bibliothèque **LiquidCrystal_I2C** :
+1. Ouvrir l’IDE Arduino.
+2. Aller dans **Croquis > Inclure une bibliothèque > Gérer les bibliothèques**.
+3. Rechercher **LiquidCrystal I2C** et installer celle de **Frank de Brabander** ou **Marco Schwartz**.
+
+```cpp
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// Adresse I2C de l'écran (souvent 0x27 ou 0x3F)
+LiquidCrystal_I2C lcd(0x27, 16, 2); // 16 colonnes, 2 lignes
+
+void setup() {
+  lcd.init();              // Initialisation de l'écran
+  lcd.backlight();         // Allumer le rétroéclairage
+  lcd.setCursor(0, 0);     // Positionner le curseur (colonne 0, ligne 0)
+  lcd.print("Hello World"); // Afficher le message
+}
+
+void loop() {
+  // Rien à faire ici
+}
+```
+
+---
+
+## 🧠 Explication du code
+- `lcd.init()` : initialise la communication avec l’écran.
+- `lcd.backlight()` : active le rétroéclairage.
+- `lcd.setCursor(0, 0)` : place le curseur au début de la première ligne.
+- `lcd.print("Hello World")` : affiche le texte.
+
+---
+
+## ✅ Vérification
+- Une fois le code téléversé, l’écran doit afficher **Hello World** dès que la carte est alimentée (par USB ou alimentation externe).
+
+---
+
+## 🧩 Extensions possibles
+- Modifier le message affiché.
+- Afficher un message sur deux lignes.
+- Ajouter un bouton pour changer le message.
+
