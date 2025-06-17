@@ -22,6 +22,9 @@ Elle peut :
 
 👉 La plus connue est la **carte Arduino UNO**, idéale pour débuter.
 
+![Arduino Uno R3](/img/Arduino_Uno_-_R3.jpg "Arduino Uno R3")
+
+
 ### 2. 💻 **L’environnement de programmation (le logiciel)**
 Pour dire à la carte quoi faire, on écrit un **programme** (appelé *sketch*) dans un langage proche du **C/C++**. On utilise pour cela :
 - Le **logiciel Arduino IDE**,
