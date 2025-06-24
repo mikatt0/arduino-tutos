@@ -12,12 +12,15 @@ C'est le logiciel qui sert à écrire les programmes pour les carte Arduino, il 
 
 Lancer l'application
 
-Todo images
+![Open arduino IDE](/img/getting-started/open-ide.png "Open arduino IDE")
 
+Ouvrir le configurateur de carte
+
+![Card configuration](/img/getting-started/open-card-configuration.png "Card configuration")
 
 Vérifier la configuration de la carte
 
-Todo Image config arduino
+![Configure card](/img/getting-started/configure-card.png "Configure card")
 
 
 ### Premier programme
@@ -29,7 +32,7 @@ Pour cela il nous faut saisir le programme suivant :
 ```cpp
 // La fonction setup n'est applelée qu'une seule fois quand on allumer la carte ou que l'on appuoe sur reset
 void setup() {
-    // Initialiser la sortie digital LED_BUILTIN comme sorti.
+    // Initialiser la sortie digital LED_BUILTIN comme sortie.
     pinMode(LED_BUILTIN, OUTPUT);
 }
 
@@ -43,4 +46,28 @@ void loop() {
 
 ```
 
-## 
+### Utilisation du moniteur série
+
+Le moniteur série permet de faire communique la carte avec l'ordinateur pour afficher des textes.
+Nous allons modifier le programme précédent pour ajouter cette fonction.
+
+```cpp
+// La fonction setup n'est applelée qu'une seule fois quand on allumer la carte ou que l'on appuoe sur reset
+void setup() {
+    // Initialisation du moniteur
+    Serial.begin(9600);
+    // Initialiser la sortie digital LED_BUILTIN comme sortie.
+    pinMode(LED_BUILTIN, OUTPUT);
+}
+
+// La function loop recommence indéfiniment
+void loop() {
+    Serial.println("Jour");            // Envoi du message
+    digitalWrite(LED_BUILTIN, HIGH);   // Allumer la DEL (HIGH tension de la sortie)
+    delay(1000);                       // Attendre 1 seconde
+    Serial.println("Nuit");            // Envoi du message
+    digitalWrite(LED_BUILTIN, LOW);    // Eteindre la DEL
+    delay(1000);                       // Attendre 1 seconde
+ }
+
+```
