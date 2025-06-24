@@ -3,6 +3,6 @@
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Les exercices."
+    "description": "Nous avons construit un petit kit avec des composant adaptés pour les exercices. Vous pouvez l'utiliser pour vous entraîner à la programmation en C. Chaque composant sera utilisé plus tard dans le projet global."
   }
 }
